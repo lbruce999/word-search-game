@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scramble Star Spelling</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main class="page-shell">
+        <section class="hero-banner">
+            <p class="eyebrow">Spell • Shuffle • Shine</p>
+            <h1>Scramble Star Spelling</h1>
+            <p class="hero-copy">Type up to 15 spelling words, press start, and watch them turn into a bright jumbled challenge.</p>
+        </section>
+
+        <section class="setup-panel" id="setup-panel">
+            <div class="panel-heading">
+                <h2>Build Your Word List</h2>
+                <p>Use letters only. You can enter 1 to 15 words for this round.</p>
+            </div>
+
+            <form id="word-form" class="word-form" novalidate>
+                <div class="word-input-grid">
+                    <input type="text" name="word1" placeholder="Word 1" maxlength="20" autocomplete="off">
+                    <input type="text" name="word2" placeholder="Word 2" maxlength="20" autocomplete="off">
+                    <input type="text" name="word3" placeholder="Word 3" maxlength="20" autocomplete="off">
+                    <input type="text" name="word4" placeholder="Word 4" maxlength="20" autocomplete="off">
+                    <input type="text" name="word5" placeholder="Word 5" maxlength="20" autocomplete="off">
+                    <input type="text" name="word6" placeholder="Word 6" maxlength="20" autocomplete="off">
+                    <input type="text" name="word7" placeholder="Word 7" maxlength="20" autocomplete="off">
+                    <input type="text" name="word8" placeholder="Word 8" maxlength="20" autocomplete="off">
+                    <input type="text" name="word9" placeholder="Word 9" maxlength="20" autocomplete="off">
+                    <input type="text" name="word10" placeholder="Word 10" maxlength="20" autocomplete="off">
+                    <input type="text" name="word11" placeholder="Word 11" maxlength="20" autocomplete="off">
+                    <input type="text" name="word12" placeholder="Word 12" maxlength="20" autocomplete="off">
+                    <input type="text" name="word13" placeholder="Word 13" maxlength="20" autocomplete="off">
+                    <input type="text" name="word14" placeholder="Word 14" maxlength="20" autocomplete="off">
+                    <input type="text" name="word15" placeholder="Word 15" maxlength="20" autocomplete="off">
+                </div>
+
+                <p class="form-message" id="form-message" aria-live="polite"></p>
+
+                <div class="setup-actions">
+                    <button type="submit" id="submit-words-btn" class="primary-button">Start the Round</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="play-panel is-hidden" id="play-panel" aria-live="polite">
+            <div class="play-topbar">
+                <div class="progress-badge" id="progress-badge">Word 1 of 1</div>
+                <div class="tries-badge" id="tries-badge">Tries: 0</div>
+            </div>
+
+            <div class="board-frame">
+                <p class="board-kicker">Unscramble this word</p>
+                <div class="scramble-row" id="scramble-row" aria-label="Scrambled letters"></div>
+            </div>
+
+            <form id="answer-form" class="answer-form" novalidate>
+                <label class="answer-label" for="guess-input">Type the correct spelling</label>
+                <div class="answer-controls">
+                    <input type="text" id="guess-input" name="guess" autocomplete="off" inputmode="text" spellcheck="false">
+                    <button type="submit" id="check-answer-btn" class="primary-button">Check Answer</button>
+                </div>
+            </form>
+
+            <div class="message-banner" id="message-banner"></div>
+
+            <section class="feedback-panel">
+                <div class="feedback-header">
+                    <h3>Your Letter Check</h3>
+                    <p>Red and bold letters need to move to a different spot.</p>
+                </div>
+                <div class="feedback-row" id="feedback-row" aria-label="Letter feedback"></div>
+            </section>
+
+            <div class="next-actions">
+                <button type="button" id="next-word-btn" class="secondary-button is-hidden">Next Word</button>
+                <button type="button" id="new-round-btn" class="ghost-button">New Word List</button>
+            </div>
+        </section>
+
+        <section class="complete-panel is-hidden" id="complete-panel" aria-live="polite">
+            <div class="complete-burst">
+                <p class="eyebrow">Round Complete</p>
+                <h2>You cleared the scramble parade!</h2>
+                <p class="complete-copy" id="complete-copy"></p>
+                <button type="button" id="play-again-btn" class="primary-button">Play Another Round</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
